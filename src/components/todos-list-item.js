@@ -10,8 +10,10 @@ export default class TodosListItem extends React.Component {
   }
 
   renderTaskSection() {
+    const { task, isCompleted } = this.props;
+
     return (
-      <td>{this.props.task}</td>
+      <td>{task}</td>
     );
   }
 
