@@ -1,6 +1,19 @@
 import React from 'react';
 
 export default class TodosList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      error: null
+    };
+  }
+
+  renderError() {
+    
+  }
+
+
   render() {
 
     return (
