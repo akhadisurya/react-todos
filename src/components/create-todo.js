@@ -10,7 +10,7 @@ export default class TodosList extends React.Component {
   }
 
   renderError() {
-    
+
   }
 
 
@@ -31,6 +31,11 @@ export default class TodosList extends React.Component {
     const task = createInput.value;
     const validateInput = this.validateInput(task);
 
+    if(validateInput) {
+      this.setState({ error: validateInput });
+    }
+
+    this.setState({ error: null });
     this.props.createTask(task);
     this.refs.createInput.value = '';
   }
