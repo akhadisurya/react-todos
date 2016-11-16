@@ -10,7 +10,9 @@ export default class TodosList extends React.Component {
   }
 
   renderError() {
+    if (!this.state.error) { return null }
 
+    return <div style={{ color: 'red' }} > {this.state.error}</div>
   }
 
 
@@ -33,6 +35,7 @@ export default class TodosList extends React.Component {
 
     if(validateInput) {
       this.setState({ error: validateInput });
+      return
     }
 
     this.setState({ error: null });
@@ -43,7 +46,7 @@ export default class TodosList extends React.Component {
   validateInput(task) {
     if (!task) {
       return 'Please Enter a Task';
-    } else if (_.find(this.props.todos, todo => task.todo === task)) {
+    } else if (_.find(this.props.todos, todo => todo.task === task)) {
       return 'Task already exists';
     } else {
       return null;
